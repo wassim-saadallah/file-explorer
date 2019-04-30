@@ -1,5 +1,5 @@
 # file-explorer
-a web-based file explorer with (hopefully) full GUI interface
+A web-based file explorer with (hopefully) full GUI interface
 
 # TO DO
 ## Backend

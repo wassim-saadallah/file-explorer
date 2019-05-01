@@ -16,16 +16,17 @@
 <body>
     <ul class="sidenav sidenav-fixed">
         <li>
-            <h4 class="title">File Explorer</h4>
+            <h3 class="title">File Explorer</h3>
         </li>
-        <li class="search">
-            <div class="search-wrapper">
+        <li>
+            <div class="container">
                 <input id="search" placeholder="Search">
-                <i class="material-icons search-icon">search</i>
                 <div class="search-results"></div>
             </div>
         </li>
-        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
         <li><a href="#!">Second Link</a></li>
         <li><a class="subheader">Subheader</a></li>
         <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
@@ -39,38 +40,42 @@
         </div>
     </nav>
 
-    <div class="table-container">
-        <table class="highlight striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Item Name</th>
-                    <th>Item Price</th>
-                </tr>
-            </thead>
+    <main>
+        <div class="table-container">
+            <table class="highlight striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>$0.87</td>
-                </tr>
-                <tr>
-                    <td>Alan</td>
-                    <td>Jellybean</td>
-                    <td>$3.76</td>
-                </tr>
-                <tr>
-                    <td>Jonathan</td>
-                    <td>Lollipop</td>
-                    <td>$7.00</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                <tbody>
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+                    <tr>
+                        <td>Alan</td>
+                        <td>Jellybean</td>
+                        <td>$3.76</td>
+                    </tr>
+                    <tr>
+                        <td>Jonathan</td>
+                        <td>Lollipop</td>
+                        <td>$7.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

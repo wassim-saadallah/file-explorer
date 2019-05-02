@@ -10,3 +10,7 @@ nav, main, header, footer {
     margin: 15px auto;
     text-align: center
 }
+
+tr td, tr th {
+    padding-left: 20px;
+}

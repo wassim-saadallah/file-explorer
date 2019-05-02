@@ -13,4 +13,10 @@ nav, main, header, footer {
 
 tr td, tr th {
     padding-left: 20px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+tr td:nth-child(2), tr th:nth-child(2) {
+    padding-left: 0px;
 }

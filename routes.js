@@ -6,14 +6,15 @@ const dirname = process.cwd()
 
 router.get('/*', async (req, res) => {
     const fullpath = req.params[0] ? path.resolve(path.join(dirname, req.params[0])) : dirname
+    console.log(fullpath)
     try {
         const filenames = await fs.readdir(fullpath)
         const fileInfos = await Promise.all(filenames.map(async name => {
-            const stats = await fs.stat(fullpath)
+            const stats = await fs.stat(path.join(fullpath, name))
             const { mtimeMs, birthtimeMs, size } = stats
             const isDirectory = stats.isDirectory()
             const ext = path.extname(name)
-            return { mtimeMs, birthtimeMs, size, name, ext, isDirectory }
+            return { mtimeMs, birthtimeMs, size, name, ext, isDirectory, fullpath: path.join(req.params[0], name) }
         }))
         return res.send(fileInfos)
     } catch (error) {

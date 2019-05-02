@@ -1,10 +1,12 @@
 const table = document.getElementById('table')
+const breadCrumbs = document.querySelector('.breadcrumbs')
+
 
 document.onclick = (ev) => {
     if (ev.target.nodeName === 'A') {
         ev.preventDefault()
         const value = ev.target.getAttribute('value')
-        renderTable(value)
+        render(value)
     }
 }
 
@@ -22,22 +24,30 @@ function formatSize(size) {
     else return `${size} B`
 }
 
-function renderTable(path = '') {
+function render(path = '') {
     console.log(path)
-    getFileInfo(path).then(files => {
-        console.log({ files })
-        table.innerHTML = ''
-        for (let { name, birthtimeMs, mtimeMs, size, isDirectory, fullpath } of files) {
-            table.innerHTML += `<tr>
-            <td>${isDirectory ? '📁' : '📄'}</td>
-            <td>${isDirectory ? `<a href="" value="${fullpath}">` + name + '</a>' : name}</td>
-            <td>${new Date(birthtimeMs).toUTCString()}</td>
-            <td>${new Date(mtimeMs).toUTCString()}</td>
-            <td>${formatSize(size)}</td>
-            </tr>`
-        }
+    getFileInfo(path).then(info => {
+        let { files, rootPath } = info
+        console.log({ files, rootPath })
+        pathArray = ['~', ...rootPath]
+        breadCrumbs.innerHTML = pathArray.map(folder => `<a href="" value="${encodeURIComponent(rootPath.join('/'))}" class="breadcrumb">${folder}</a>`).join('')
+        renderTable(files);
     })
 }
 
-renderTable()
+function renderTable(files) {
+    console.log({ files });
+    table.innerHTML = '';
+    for (let { name, birthtimeMs, mtimeMs, size, isDirectory, fullpath } of files) {
+        table.innerHTML += `<tr>
+        <td>${isDirectory ? '📁' : '📄'}</td>
+        <td>${isDirectory ? `<a href="" value="${encodeURIComponent(fullpath)}">` + name + '</a>' : name}</td>
+        <td>${new Date(birthtimeMs).toUTCString()}</td>
+        <td>${new Date(mtimeMs).toUTCString()}</td>
+        <td>${formatSize(size)}</td>
+        </tr>`;
+    }
+}
 
+
+render()

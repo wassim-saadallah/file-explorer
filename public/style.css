@@ -1,5 +1,11 @@
-nav, main, header, footer {
-    margin-left: 300px;
+main, header, footer {
+    margin-left: 300px;   
+}
+
+@media screen and (max-width: 992px){
+    main, header, footer {
+        margin-left: 0px;   
+    }
 }
 
 .breadcrumbs {

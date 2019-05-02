@@ -17,8 +17,7 @@ router.get('/*', async (req, res) => {
             const ext = path.extname(name)
             return { mtimeMs, birthtimeMs, size, name, ext, isDirectory, fullpath: path.join(req.params[0], name) }
         }))
-        console.log({ path: req.params['0'].split(path.sep) })
-        return res.send({ rootPath: req.params['0'].split(path.sep), files })
+        return res.send({ rootPath: path.normalize(req.params[0]).split(path.sep), files })
     } catch (error) {
         console.log(error)
         return res.status(404).send({ err: 'no such file or directory : ' + path.parse(error.path).name })

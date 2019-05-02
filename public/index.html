@@ -11,6 +11,7 @@
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tree.css">
 </head>
 
 <body>
@@ -27,9 +28,41 @@
         <li>
             <div class="divider"></div>
         </li>
-        <li><a href="#!">Second Link</a></li>
-        <li><a class="subheader">Subheader</a></li>
-        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li>
+            <div class="tree-container">
+                <ul class="tree">
+                    <li>Child 1</li>
+                    <li>Child 2</li>
+                    <li>
+                        <input class="tree-toggle" type="checkbox" id="tree-toggle-01" />
+                        <label class="tree-toggle-label" for="tree-toggle-01">Child 3</label>
+                        <ul class="subtree">
+                            <li>Subchild 1</li>
+                            <li>Subchild 2</li>
+                            <li>
+                                <input class="tree-toggle" type="checkbox" id="tree-toggle-02" />
+                                <label class="tree-toggle-label" for="tree-toggle-02">Subchild 3</label>
+                                <ul class="subtree">
+                                    <li>SubSubChild 1</li>
+                                    <li>SubSubChild 2</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input class="tree-toggle" type="checkbox" id="tree-toggle-03" />
+                                <label class="tree-toggle-label" for="tree-toggle-03">Subchild 4</label>
+                                <ul class="subtree">
+                                    <li>SubSubChild 1</li>
+                                    <li>SubSubChild 2</li>
+                                    <li>SubSubChild 3</li>
+                                </ul>
+                            </li>
+                            <li>Subchild 5</li>
+                        </ul>
+                    </li>
+                    <li>Child 4</li>
+                </ul>
+            </div>
+        </li>
     </ul>
 
     <main>

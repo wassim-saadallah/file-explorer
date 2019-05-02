@@ -26,3 +26,7 @@ tr td, tr th {
 tr td:nth-child(2), tr th:nth-child(2) {
     padding-left: 0px;
 }
+
+.tree-container {
+    margin: auto 7%
+}

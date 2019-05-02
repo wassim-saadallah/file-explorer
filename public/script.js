@@ -1,5 +1,6 @@
 const table = document.getElementById('table')
 const breadCrumbs = document.querySelector('.breadcrumbs')
+const tree = document.querySelector('.tree')
 
 
 document.onclick = (ev) => {

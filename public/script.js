@@ -25,8 +25,8 @@ function formatSize(size) {
     else return `${size} B`
 }
 
-function renderTree(files) {
-
+function renderInitialTree(files) {
+    tree.innerHTML = files.map(file => `<li>${file.isDirectory ? '📁' : '📄'}&nbsp${file.name}</li>`).join('')
 }
 
 function render(path = '') {
@@ -36,6 +36,7 @@ function render(path = '') {
         console.log({ files, rootPath })
         renderBreadCrumbs(rootPath);
         renderTable(files);
+        renderInitialTree(files)
     })
 }
 

@@ -25,15 +25,23 @@ function formatSize(size) {
     else return `${size} B`
 }
 
+function renderTree(files) {
+
+}
+
 function render(path = '') {
     console.log(path)
     getFileInfo(path).then(info => {
         let { files, rootPath } = info
         console.log({ files, rootPath })
-        pathArray = ['~', ...rootPath]
-        breadCrumbs.innerHTML = pathArray.map(folder => `<a href="" value="${encodeURIComponent(rootPath.join('/'))}" class="breadcrumb">${folder}</a>`).join('')
+        renderBreadCrumbs(rootPath);
         renderTable(files);
     })
+}
+
+function renderBreadCrumbs(rootPath) {
+    pathArray = ['~', ...rootPath];
+    breadCrumbs.innerHTML = pathArray.map(folder => `<a href="" value="${encodeURIComponent(rootPath.join('/'))}" class="breadcrumb">${folder}</a>`).join('');
 }
 
 function renderTable(files) {

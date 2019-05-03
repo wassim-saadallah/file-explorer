@@ -13,7 +13,7 @@ A web-based file explorer with (hopefully) full GUI interface
 - ~~show all files and details in a table~~
 - ~~traverse a directory by clicking at it's name~~
 - add and remove files and directories
-- go back a directory
+- ~~go back a directory~~
 - implement a tree graph of files
 - implement a file search
 - get the breadcrumbs to work

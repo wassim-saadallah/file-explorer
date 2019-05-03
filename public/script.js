@@ -38,7 +38,7 @@ function renderInitialTree(files) {
 
 function renderBreadCrumbs(rootPath = []) {
     pathArray = ['~', ...rootPath];
-    breadCrumbs.innerHTML = pathArray
+    breadCrumbs.innerHTML += pathArray
         .map((folder, index) => `<a href="" value="${encodeURIComponent(rootPath.slice(0, index).join('/'))}" class="breadcrumb">${folder}</a>`).join('');
 }
 
@@ -63,7 +63,7 @@ function render(path = '') {
         console.log({ files, rootPath })
         renderBreadCrumbs(rootPath);
         renderTable(files);
-        renderInitialTree(files)
+        // renderInitialTree(files)
         backButton.setAttribute('value', rootPath.slice(0, rootPath.length - 1).join('/'))
     })
 }

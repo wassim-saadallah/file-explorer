@@ -20,7 +20,7 @@ main, header, footer {
 tr td, tr th {
     padding-left: 20px;
     margin-right: 0px;
-    padding-right: 0px;
+    padding-right: 10px;
 }
 
 tr td:nth-child(2), tr th:nth-child(2) {
@@ -29,4 +29,8 @@ tr td:nth-child(2), tr th:nth-child(2) {
 
 .tree-container {
     margin: auto 7%
+}
+
+#back {
+    cursor: pointer;
 }

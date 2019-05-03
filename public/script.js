@@ -1,6 +1,7 @@
 const table = document.getElementById('table')
 const breadCrumbs = document.querySelector('.breadcrumbs')
 const tree = document.querySelector('.tree')
+const backButton = document.getElementById('back')
 
 
 document.onclick = (ev) => {
@@ -9,6 +10,11 @@ document.onclick = (ev) => {
         const value = ev.target.getAttribute('value')
         render(value)
     }
+}
+
+backButton.onclick = (ev) => {
+    const value = ev.target.getAttribute('value')
+    render(value)
 }
 
 async function getFileInfo(path = '') {
@@ -29,20 +35,11 @@ function renderInitialTree(files) {
     tree.innerHTML = files.map(file => `<li>${file.isDirectory ? '📁' : '📄'}&nbsp${file.name}</li>`).join('')
 }
 
-function render(path = '') {
-    console.log(path)
-    getFileInfo(path).then(info => {
-        let { files, rootPath } = info
-        console.log({ files, rootPath })
-        renderBreadCrumbs(rootPath);
-        renderTable(files);
-        renderInitialTree(files)
-    })
-}
 
-function renderBreadCrumbs(rootPath) {
+function renderBreadCrumbs(rootPath = []) {
     pathArray = ['~', ...rootPath];
-    breadCrumbs.innerHTML = pathArray.map(folder => `<a href="" value="${encodeURIComponent(rootPath.join('/'))}" class="breadcrumb">${folder}</a>`).join('');
+    breadCrumbs.innerHTML = pathArray
+        .map((folder, index) => `<a href="" value="${encodeURIComponent(rootPath.slice(0, index).join('/'))}" class="breadcrumb">${folder}</a>`).join('');
 }
 
 function renderTable(files) {
@@ -59,5 +56,16 @@ function renderTable(files) {
     }
 }
 
+function render(path = '') {
+    console.log(path)
+    getFileInfo(path).then(info => {
+        let { files, rootPath } = info
+        console.log({ files, rootPath })
+        renderBreadCrumbs(rootPath);
+        renderTable(files);
+        renderInitialTree(files)
+        backButton.setAttribute('value', rootPath.slice(0, rootPath.length - 1).join('/'))
+    })
+}
 
 render()
